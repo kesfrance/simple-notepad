@@ -1,0 +1,7 @@
+{% extends "template.html" %}
+{% block content %}
+<h1>{{oneNote.title}}</h2>
+<p> {{oneNote.content}}</p>
+<a href="{{url_for('editNote', note_id=note_id)}}">Edit</a> 
+<a href="{{url_for('deleteNote', note_id=note_id)}}">Delete</a> 
+{% endblock %}

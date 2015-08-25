@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block content %}
+<h1>
+    Edit Note
+</h1>
+
+<form action= "{{url_for('editNote', note_id = note_id)}}" method = 'POST'>
+
+<p>Title:</p>
+<input type = 'text' size='60' name = 'title' value = '{{i.title}}'>
+
+<p>Content:</p>
+<textarea name="content" cols = "100" rows="5" required>{{i.content}}</textarea>
+<br>
+<input type='submit' value='Edit'>
+
+<a href= '{{url_for('singleNote', note_id= i.id)}}'>Cancel</a>
+</form>
+{% endblock %}
+
+

@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block content %}
+    <p><a href="/logout">Logout</a></p>
+    <h2>Welcome to Simple Note!</h2>
+    <br/>
+    <br/>
+     {% for n in allnotes %}
+        
+         <a href="{{url_for("singleNote", note_id=n.id)}}">{{ n.title}}</a> 
+         <br/>
+         {{ n.content }} <br/>
+        <br/>
+     {% endfor %}  
+    <br>
+    <br>    
+    <h3>Add a new note:</h3>
+    <form action="{{ url_for('add') }}" method="post" class="add">
+       
+       <input name="title" type="text" size = '100' placeholder = 'Title (required)'>
+       <br>
+       <textarea name="content" rows="5" cols="100" placeholder = 'Notes (required)'></textarea></p>
+       <input class="button" type="submit" value="Save">
+    </form>
+{% endblock %}
